@@ -162,7 +162,7 @@ nav a:hover::after{width:100%}
 /* HERO */
 header{
   height:100vh;
-  background:linear-gradient(135deg, rgba(10,10,10,0.4), rgba(26,26,26,0.5)), url('https://scontent.fnbo7-1.fna.fbcdn.net/v/t39.30808-6/472708889_578502148270206_2152993735041164812_n.jpg?stp=c240.0.960.960a_dst-jpg_s206x206_tt6&_nc_cat=108&ccb=1-7&_nc_sid=714c7a&_nc_ohc=dhwl5uAKlZoQ7kNvwE9zbv1&_nc_oc=AdnAzh2QdCoiGfY_UuR5TfVZhaRuzBOdF742MYJ2cY_8sEYT-q11N6tO0V7PsitO2HY&_nc_zt=23&_nc_ht=scontent.fnbo7-1.fna&_nc_gid=HkAAQOALDZsCH1CHA1LeGg&oh=00_Afoszz2-tGEK7r8UDy9LmcwoDyDEU1o-mIH0hLQHiMgNiQ&oe=696DB869');
+  background:linear-gradient(135deg, rgba(10,10,10,0.4), rgba(26,26,26,0.5)), url('Heros.webp');
   background-size:cover;
   background-position:center center;
   background-position: center;
