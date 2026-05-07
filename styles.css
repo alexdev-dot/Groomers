@@ -710,8 +710,8 @@ section{padding:80px 50px}
 }
 .services{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
   position:relative;
   z-index:1;
 }
@@ -746,7 +746,6 @@ section{padding:80px 50px}
 }
 .service-image{
   width:100%;
-  height:180px;
   overflow:hidden;
   position:relative;
 }
@@ -767,8 +766,8 @@ section{padding:80px 50px}
 }
 .service-image img{
   width:100%;
-  height:100%;
-  object-fit:cover;
+  height:auto;
+  object-fit:contain;
   object-position:center;
   transition:transform 0.8s cubic-bezier(0.4,0,0.2,1);
   filter:brightness(1);
@@ -778,19 +777,8 @@ section{padding:80px 50px}
   transform:scale(1.15);
   filter:brightness(1.1);
 }
-.service-image::after{
-  content:"";
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:120px;
-  background:linear-gradient(to top, rgba(255,255,255,0.9), transparent);
-  pointer-events:none;
-  z-index:3;
-}
 .service-content{
-  padding:30px 25px;
+  padding:20px 18px;
   position:relative;
   z-index:4;
 }
@@ -798,8 +786,8 @@ section{padding:80px 50px}
   content:"";
   position:absolute;
   top:0;
-  left:25px;
-  right:25px;
+  left:18px;
+  right:18px;
   height:3px;
   background:var(--gradient-gold);
   opacity:0;
@@ -811,9 +799,9 @@ section{padding:80px 50px}
   transform:scaleX(1);
 }
 .service-content h4{
-  font-size:1.2rem;
+  font-size:1rem;
   color:var(--dark);
-  margin-bottom:15px;
+  margin-bottom:12px;
   font-weight:600;
   font-family:'Playfair Display', serif;
   transition:color 0.3s ease;
@@ -838,9 +826,9 @@ section{padding:80px 50px}
 }
 .service-content p{
   color:var(--text-gray);
-  line-height:1.6;
-  margin-bottom:20px;
-  font-size:0.9rem;
+  line-height:1.5;
+  margin-bottom:15px;
+  font-size:0.85rem;
   transition:color 0.3s ease;
 }
 .service-card:hover .service-content p{
@@ -849,16 +837,16 @@ section{padding:80px 50px}
 .service-book-btn{
   display:inline-flex;
   align-items:center;
-  gap:6px;
-  padding:10px 24px;
+  gap:5px;
+  padding:8px 18px;
   background:var(--gradient-gold);
   color:var(--dark);
   border-radius:50px;
   font-weight:600;
   text-decoration:none;
   transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
-  font-size:0.85rem;
-  box-shadow:0 6px 20px rgba(212,175,55,0.25);
+  font-size:0.75rem;
+  box-shadow:0 4px 15px rgba(212,175,55,0.25);
   position:relative;
   overflow:hidden;
   text-transform:uppercase;
@@ -889,6 +877,56 @@ section{padding:80px 50px}
 }
 .service-book-btn:hover i{
   transform:translateX(3px);
+}
+
+/* Services CTA */
+.services-cta{
+  text-align:center;
+  margin-top:50px;
+  padding:40px 20px;
+  background:linear-gradient(135deg, rgba(212,175,55,0.05), rgba(212,175,55,0.02));
+  border-radius:20px;
+  border:1px solid rgba(212,175,55,0.1);
+  position:relative;
+  overflow:hidden;
+}
+.services-cta::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:3px;
+  background:var(--gradient-gold);
+  transform:translateX(-100%);
+  transition:transform 0.8s cubic-bezier(0.4,0,0.2,1);
+}
+.services-cta:hover::before{
+  transform:translateX(0);
+}
+.services-cta p{
+  color:var(--text-gray);
+  font-size:1.1rem;
+  margin-bottom:25px;
+  font-weight:500;
+  position:relative;
+  z-index:2;
+}
+.services-cta .btn{
+  position:relative;
+  z-index:2;
+}
+.services-cta .btn-secondary{
+  background:transparent;
+  color:var(--dark);
+  border:2px solid var(--gold);
+}
+.services-cta .btn-secondary:hover{
+  background:var(--gradient-gold);
+  color:var(--dark);
+  border-color:var(--gold);
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(212,175,55,0.3);
 }
 
 /* REVIEWS */
@@ -923,11 +961,20 @@ section{padding:80px 50px}
   pointer-events:none;
 }
 .reviews{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
-  gap:30px;
   position:relative;
   z-index:1;
+  overflow:hidden;
+  padding:20px 0;
+}
+.reviews-container{
+  display:flex;
+  gap:30px;
+  transition:transform 0.5s ease-in-out;
+  will-change:transform;
+}
+.reviews-container .review-card{
+  flex:0 0 auto;
+  width:380px;
 }
 .review-card{
   background:#ffffff;
@@ -1557,7 +1604,7 @@ footer::before{
 @media(max-width:1200px){
   .footer-content{grid-template-columns:2fr 1fr 1fr}
   .services{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
-  .reviews{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+  .reviews-container .review-card{width:320px}
 }
 
 @media(max-width:1024px){
@@ -1578,7 +1625,7 @@ footer::before{
   .about-content h2{font-size:2.2rem}
   .contact-info h2{font-size:2rem}
   .services{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-  .reviews{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .reviews-container .review-card{width:300px}
 }
 
 @media(max-width:768px){
@@ -1598,7 +1645,7 @@ footer::before{
   .about-content h2{font-size:1.8rem}
   .contact{grid-template-columns:1fr;gap:40px}
   .services{grid-template-columns:1fr}
-  .reviews{grid-template-columns:1fr}
+  .reviews-container .review-card{width:100%}
   .title h3{font-size:2rem}
   .mobile-menu{display:flex}
   nav ul{display:none;position:absolute;top:100%;left:0;width:100%;background:rgba(10,10,10,0.95);flex-direction:column;padding:25px;gap:0}
@@ -1607,8 +1654,8 @@ footer::before{
   .nav-cta{margin-top:15px}
   .contact-buttons{flex-direction:column;gap:8px}
   .btn-contact{min-width:100%}
-  .about-stats{flex-direction:column;gap:15px;align-items:center}
-  .stat-item{width:100%;max-width:200px}
+  .about-stats{flex-direction:row;gap:15px;justify-content:center;flex-wrap:wrap}
+  .stat-item{flex:1;min-width:120px;max-width:150px}
   .whatsapp-float{left:15px;bottom:25px;width:55px;height:55px;font-size:24px}
 }
 
@@ -1659,8 +1706,8 @@ footer::before{
   .about-content h2{font-size:1.4rem}
   .about-content p{font-size:0.9rem}
   .about-buttons{flex-direction:column}
-  .about-stats{flex-direction:column;gap:12px;align-items:center}
-  .stat-item{width:100%;max-width:180px;padding:20px 15px}
+  .about-stats{flex-direction:row;gap:12px;justify-content:center;flex-wrap:wrap}
+  .stat-item{flex:1;min-width:100px;max-width:130px;padding:20px 15px}
   .stat-number{font-size:1.6rem}
   .stat-label{font-size:0.8rem}
   .service-image{height:140px}
